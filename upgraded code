@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm" onsubmit="event.preventDefault(); login();">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Aquí se debe enviar una solicitud al servidor para validar las credenciales
+            // Ejemplo de uso de fetch para enviar una solicitud POST
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Login successful!');
+                    const welcomeMessage = document.createElement('p');
+                    welcomeMessage.textContent = `Welcome, ${username}!`;
+                    document.body.appendChild(welcomeMessage);
+                } else {
+                    alert('Invalid credentials!');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during login.');
+            });
+        }
+    </script>
+</body>
+</html>

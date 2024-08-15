@@ -1,0 +1,11 @@
+UPGRADES
+
+XSS Prevention: Use textContent instead of innerHTML to prevent code injection.
+Credential Validation: Credentials are sent to the server for validation instead of being validated on the client side.
+Transmission Security: Although it cannot be shown in the HTML code, ensure to use HTTPS to encrypt the communication.
+
+
+
+
+
+
