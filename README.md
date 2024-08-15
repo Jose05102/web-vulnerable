@@ -61,16 +61,3 @@
      git push origin main
      ```
 
-5. **Update README**
-   - In the `main` branch, update the `README.md` file to include explanations of how each vulnerability was managed and fixed. This should detail:
-     - The vulnerability identified.
-     - The branch created for the fix.
-     - The changes made to resolve the issue.
-
-   - Commit and push your updated `README.md` file:
-     ```bash
-     git add README.md
-     git commit -m "Update README with vulnerability remediation details"
-     git push origin main
-     ```
-
